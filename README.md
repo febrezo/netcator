@@ -32,32 +32,34 @@ Scenario
 
 Assuming that the victim is already running Tor, to set the environment an attacker would have to:
 
-1. Install tor in the attacker machine. E. g., in Debian-like systems:
+* Install tor in the attacker machine. E. g., in Debian-like systems:
 ```
 	sudo apt-get install tor
 ```
-2. Set up a listening netcat locally in the machine.
+
+* Set up a listening netcat locally in the machine.
 ```
 	nc -v -l -p 1234 127.0.0.1
 ```
-3. Configuring the listening netcat to be reachable via Tor by updating the torrc file:
+
+* Configuring the listening netcat to be reachable via Tor by updating the torrc file:
 ```
 	HiddenServiceDir /var/lib/tor/nc_hidden_service/
 	HiddenServicePort 1234 127.0.0.1:1234
 ```
-4. Start the Tor service in the attacker's machine and get the hostname stored in the HiddenServiceDir set before:
+
+* Start the Tor service in the attacker's machine and get the hostname stored in the HiddenServiceDir set before:
 ```
 	service tor start
 ```
-5. Prepare the payload accordingly.
+
+* Prepare the payload accordingly.
 
 Final Remarks
 -------------
 
 Note that the full scenario will imply the installation/compilation of Tor in the victim. 
-Similar scenarios can be deployed using other services such as SSH or Meterpreter.
- 
-More detailed information can be found in the [Eleven Paths](https://www.elevenpaths.com/es/nuevo-eleven-paths-discover-netcator-shell-inversa-a-traves-de-tor/index.html).
+Similar scenarios can be deployed using other services such as SSH or Meterpreter. More detailed information can be found in the [Eleven Paths](https://www.elevenpaths.com/es/nuevo-eleven-paths-discover-netcator-shell-inversa-a-traves-de-tor/index.html).
 
 About the Authors
 -----------------
